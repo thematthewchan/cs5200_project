@@ -1,6 +1,7 @@
 package com.example.springtemplate.repositories;
 
 import com.example.springtemplate.models.User;
+import com.example.springtemplate.models.Vehicle;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -15,4 +16,7 @@ public interface UserRestRepository
     @Query(value = "SELECT * FROM users WHERE id=:userId",
             nativeQuery = true)
     public User findUserById(@Param("userId") Integer id);
+    @Query(value = "SELECT * FROM vehicles WHERE user_id=:userId",
+        nativeQuery = true)
+    public List<Vehicle> getVehicles(@Param("userId") Integer id);
 }

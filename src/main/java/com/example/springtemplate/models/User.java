@@ -1,5 +1,7 @@
 package com.example.springtemplate.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -14,6 +16,18 @@ public class User {
     private String password;
     private String email;
     private String dob;
+
+//    @OneToMany(mappedBy = "user")
+//    @JsonIgnore
+//    private List<Vehicle> vehicles;
+//
+//    public List<Vehicle> getVehicles() {
+//        return vehicles;
+//    }
+//
+//    public void setSections(List<Vehicle> vehicles) {
+//        this.vehicles = vehicles;
+//    }
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }

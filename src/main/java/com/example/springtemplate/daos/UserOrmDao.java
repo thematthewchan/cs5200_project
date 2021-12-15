@@ -25,8 +25,27 @@ public class UserOrmDao {
         User user = new User(firstName, lastName, username, password, email, dob);
         return userRepository.save(user);
     }
-    public List<User> findAllUser() { return null; }
-    public User findUserById(Integer id) { return null; }
-    public Integer deleteUser(Integer id) { return null; }
-    public Integer updateUser() { return null; }
+
+    @GetMapping("/orm/users/find")
+    public List<User> findAllUser() {
+        return userRepository.findAllUsers();
+    }
+
+    @GetMapping("/orm/users/find/id/{userId}")
+    public User findUserById(@PathVariable("userId") Integer id) {
+        return userRepository.findUserById(id);
+    }
+
+    @GetMapping("/orm/users/delete/{userId}")
+    public void deleteUser(@PathVariable("userId") Integer id) {
+        userRepository.deleteById(id);
+    }
+
+    @GetMapping("/orm/users/update/{userId}/{password}")
+    public User updateUser(@PathVariable("userId") Integer id,
+        @PathVariable("password") String password) {
+        User user = userRepository.findUserById(id);
+        user.setPassword(password);
+        return userRepository.save(user);
+    }
 }
