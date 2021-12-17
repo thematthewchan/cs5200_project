@@ -107,22 +107,3 @@ const EngineFormEditor = () => {
 }
 
 export default EngineFormEditor
-/*
-<ul className="list-group">
-            {
-              vehicles.map(vehicle =>
-                  <li className="list-group-item"
-                      key={vehicle.id}>
-                    <Link to={`/vehicles/${vehicle.id}`}>
-                      {vehicle.id},
-                      {vehicle.year},
-                      {vehicle.make},
-                      {vehicle.model},
-                      {vehicle.bodystyle},
-                      {vehicle.color},
-                      {vehicle.userId}
-                    </Link>
-                  </li>)
-            }
-          </ul>
- */
